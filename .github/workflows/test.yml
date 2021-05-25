@@ -6,10 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - uses: actions/setup-python@v1
         with:
           python-version: 3.8
           architecture: x64
       - run: sudo apt -y install libeigen3-dev
       - run: sudo apt -y install ninja-build
-      - run: python3 setup.py install 
+      - run: python3 setup.py install
